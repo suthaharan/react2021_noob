@@ -1,4 +1,4 @@
-# react2021_noob
+# React 2021 4 Noobs
 React beginner with simple steps
 
 Topic of contents
@@ -23,7 +23,7 @@ Topic of contents
 * React Search Filter
 * React Hooks
 
-##### Create React App
+#### Create React App
 * Install the node server (node version for the current app is v12.14.1, npm v6.13.4)
 * [Visit reactapp github page]
 * [Online learing through Stackblitz] (https://stackblitz.com/edit/react-wd2rqu Stackblitz)
