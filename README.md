@@ -29,3 +29,15 @@ Topic of contents
 * [Online learing through Stackblitz] (https://stackblitz.com/edit/react-wd2rqu Stackblitz)
 * [Online learning through CodeSandbox] (https://codesandbox.io/s/new)
 * [https://codepen.io/pen?&editors=0010]
+
+```
+$ npx create-react-app contactlistapp
+$ cd contactlistapp
+$ npm start
+```
+
+* Semantic UI library will be used in this project 
+  * Semantic UI CDN [https://cdnjs.com/libraries/semantic-ui]
+  * Semantic UI website [https://semantic-ui.com/introduction/getting-started.html]
+
+* A component is a piece of code which can be reusable, has its own input/output and has its own functionality. JSX is combination of javascript and html which is used in creating components. 
