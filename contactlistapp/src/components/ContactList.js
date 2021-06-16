@@ -1,14 +1,11 @@
 import React from "react";
+import ContactCard from "./ContactCard";
 // Create a functional component
 const ContactList = (props) => {
     console.log(props);
     const renderContactList = props.contacts.map((contact) => {
         return (
-            <tr>
-            <td data-label="Name">{contact.name}</td>
-            <td data-label="Email">{contact.email}</td>
-            <td data-label="Action"><i className="trash alternate outline icon"></i></td>
-          </tr>
+            <ContactCard contact={contact}></ContactCard>
         );
     });
     return (

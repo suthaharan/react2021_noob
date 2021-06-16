@@ -42,4 +42,6 @@ $ npm start
 
 * A component is a piece of code which can be reusable, has its own input/output and has its own functionality. JSX is combination of javascript and html which is used in creating components. 
 * If you are going to return more than 1 line of code, you use paranthesis to group them ().
-* class cannot be used in JSX as it refers to classes and you need to use className instead.
+* Styling html elements inside JSX
+  * class cannot be used in JSX as it refers to classes and you need to use className instead.
+  * use camel case to represent CSS properties "padding-top" will be "paddingTop", "font-family" will be "fontFamily"
