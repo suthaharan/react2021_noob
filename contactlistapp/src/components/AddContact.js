@@ -1,9 +1,11 @@
 import React from 'react';
+//import { useNavigate } from 'react-router-dom';
 
 class AddContact extends React.Component{
     state = {
         name: "",
         email: "",
+        id:""
     }
     add = (e) => {
         e.preventDefault();
@@ -14,6 +16,10 @@ class AddContact extends React.Component{
         this.props.addContactHandler(this.state);
         console.log(this.state);
         this.setState({name: "", email: ""});
+        console.log(this.props);
+        //this.props.history.push("/");
+        //const navigate = useNavigate(); 
+        //navigate("/home", { state: { message: "Ok" } });
     }  
     render(){
         return (

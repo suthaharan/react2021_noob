@@ -53,7 +53,8 @@ $ npm start
 * To generate unique id for each user
     * $ npm i -S uuidv4
 
-* Class component
+* Class componentnpm i
+* 
 ```javascript
 import React from 'react';
 
