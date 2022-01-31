@@ -1,6 +1,6 @@
 import React from 'react';
-import usericon from '../images/panda.png';
-import { useLocation } from 'react-router-dom';
+import usericon from '../images/penguin.png';
+import { useLocation, Link } from 'react-router-dom';
 
 const ContactDetail= (props) => {
     //console.log(props);
@@ -19,6 +19,9 @@ const ContactDetail= (props) => {
                     <div className='header'>{name}</div>
                     <div className=''>{email}</div>
                 </div>
+            </div>
+            <div className='center-div centered'>
+                <Link to="/"><button className='ui button blue center'>Back to Contact List</button></Link>
             </div>
         </div>
     );
