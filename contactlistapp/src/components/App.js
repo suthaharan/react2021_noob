@@ -25,6 +25,7 @@ function App() {
   //   },
   // ];
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   //const LOCAL_STORAGE_KEY = "contacts";
 
   const addContactHandler = async (contact) => {
@@ -63,7 +64,9 @@ function App() {
     )
 
   };
-
+  const searchHandler = async (searchTerm) => {
+    console.log("Search handler > ", searchTerm);
+  }
   const removeContactHandler = async (id) => {
     await api.delete(`/contacts/${id}`);
 
@@ -101,7 +104,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler}/>} />
+          <Route path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler} term={searchTerm} searchKeyword={ searchHandler } />} />
           <Route path="/add" element={<AddContact addContactHandler={addContactHandler}/>} />
           <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler}/>} />
           <Route path="/contact/:id" element={<ContactDetail />} />

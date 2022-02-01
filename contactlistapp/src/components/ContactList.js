@@ -1,6 +1,8 @@
 import React from "react";
 import ContactCard from "./ContactCard";
 import {Link} from 'react-router-dom';
+
+import SearchBar from './SearchBar';
 // Create a functional component
 const ContactList = (props) => {
     console.log(props);
@@ -11,7 +13,13 @@ const ContactList = (props) => {
     });
     return (
         <div className="ui celled list">
-                <h2>Contact List <Link to="/add"><button className="ui button blue right">Add Contact</button></Link></h2>
+                <h2>Contact List </h2>
+                <div className="ui grid">
+                    <div className="two column row"> 
+                        <div className="column"><Link to="/add"><button className="ui button blue right">Add Contact</button></Link> </div>
+                        <div className="column">  <SearchBar term={props.term} searchKeyword={props.searchKeyword} /></div>
+                    </div>   
+                </div>
                 <table className="ui celled table">
                 <thead>
                     <tr>
@@ -20,7 +28,10 @@ const ContactList = (props) => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>{renderContactList}</tbody>
+                <tbody>
+                   
+                    {renderContactList}
+                </tbody>
                 </table>       
         </div>
     );
