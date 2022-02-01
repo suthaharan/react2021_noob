@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const EditContact= (props) => {
     //console.log(props);
     // destructure the props
-    const location = useLocation()
+    const location = useLocation();
+    const navigate = useNavigate(); 
     let tempName = '', tempEmail='', tempId='';
     if(location.state.contact){
         tempName = location.state.contact.name?location.state.contact.name:'';
@@ -31,6 +32,10 @@ const EditContact= (props) => {
         props.updateContactHandler({name, email, id});
         setName('');
         setEmail('');
+        setId('');
+
+       
+        navigate("/", { state: { message: "Ok" } });
         
    }
    const handleNameChange = (e) => {
