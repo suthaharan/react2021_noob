@@ -11,7 +11,11 @@ const ContactCard = (props) => {
         <td data-label="Name"><img className="ui avatar image" src={usericon} alt="user" /><Link to={`/contact/${id}`} state={{contact: props.contact}}>{name}</Link></td>
         <td data-label="Email"><Link to={`/contact/${id}`} state={{contact: props.contact}}>{email}</Link></td>
         <td data-label="Action">
-            <i className="trash alternate outline icon" style={{color: "red", marginTop:"2px"}} onClick={() => props.clickHandler(id)} ></i></td>
+        <Link to={`/edit`} state={{contact: props.contact}}>
+            <i className="edit alternate outline icon" style={{color: "green", marginTop:"2px", marginRight: "5px"}} ></i>
+        </Link>    
+            <i className="trash alternate outline icon" style={{color: "red", marginTop:"2px"}} onClick={() => props.clickHandler(id)} ></i>
+        </td>
         </tr>
     );
 }

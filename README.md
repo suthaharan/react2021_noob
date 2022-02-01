@@ -93,3 +93,46 @@ class AddContact extends React.Component{
 
 export default AddContact;
 ```
+
+#### LocalStorage Access
+
+```javascript
+  const LOCAL_STORAGE_KEY = "contacts";
+
+  ...
+  // retrieve data from localstorage
+  const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts)));
+  if(retrieveContacts){
+    setContacts(retrieveContacts);
+  }
+
+  ...
+  // set localstorage
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+
+```
+
+
+#### JSON Placeholder API
+* URI [https://jsonplaceholder.typicode.com/]
+
+#### JSON Server
+* Create a separate folder for json server and name it "server-api"
+* Initialize npm
+```
+$ npm install -g json-server
+```
+* Modify package.json to start the server and to watch db.json changes
+* Visit http://localhost:3005/contacts to see the contacts list (you should create a db.json file with contacts json payload)
+```
+ "scripts": {
+    "start": "json-server -p 3005 -w db.json"
+  },
+```
+
+#### Axios for API access
+* Ref link [https://zetcode.com/javascript/jsonserver/]
+* Install axios
+```
+$ npm i -S axios
+```

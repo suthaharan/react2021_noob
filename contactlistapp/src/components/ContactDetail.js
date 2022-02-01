@@ -8,16 +8,15 @@ const ContactDetail= (props) => {
     const location = useLocation()
     const { contact } = location.state
     // console.log("in contact detail >> location state ", location.state);
-    const {id, name, email} = contact;
     return (
         <div className="main">
             <div className='ui card centered'>
                 <div className='image'>
-                    <img src={usericon} alt="user" />
+                    <img src={usericon} alt="user " />
                 </div>
                 <div className='content'>
-                    <div className='header'>{name}</div>
-                    <div className=''>{email}</div>
+                    <div className='header'>{contact.name}</div>
+                    <div className=''>{contact.email}</div>
                 </div>
             </div>
             <div className='center-div centered'>
