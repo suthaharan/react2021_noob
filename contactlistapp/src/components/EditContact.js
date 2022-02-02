@@ -19,7 +19,6 @@ const EditContact= (props) => {
     const [id, setId] = useState(tempId);
 
     // console.log("in contact detail >> location state ", location.state);
-
     const editUpdate = (e) => {
         e.preventDefault();
 
@@ -33,20 +32,19 @@ const EditContact= (props) => {
         setName('');
         setEmail('');
         setId('');
-
-       
+     
         navigate("/", { state: { message: "Ok" } });
         
    }
    const handleNameChange = (e) => {
         e.preventDefault();
         setName( e.target.value );
-  };
+   };
 
   const handleEmailChange = (e) => {
     e.preventDefault();
     setEmail( e.target.value );
-};
+  };
 
     return (
         <div className="ui main">

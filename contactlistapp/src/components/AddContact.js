@@ -1,5 +1,9 @@
 import React from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
+export const  withNavigation = (Component) => {
+  return props => <Component {...props} navigate={useNavigate()} />;
+} 
 
 class AddContact extends React.Component{
     state = {
@@ -14,12 +18,15 @@ class AddContact extends React.Component{
             return;
         }
         this.props.addContactHandler(this.state);
-        console.log(this.state);
+        console.log("history ", this.props.history);
         this.setState({name: "", email: ""});
         console.log(this.props);
+        // return <Navigate to='/' replace={true}/>;
         //this.props.history.push("/");
         //const navigate = useNavigate(); 
-        //navigate("/home", { state: { message: "Ok" } });
+        //this.props.navigate("/home", { state: { message: "Ok" } });
+        //successful login 
+        this.props.navigate('/');
     }  
     render(){
         return (
@@ -39,4 +46,4 @@ class AddContact extends React.Component{
     }
 }
 
-export default AddContact;
+export default withNavigation(AddContact);

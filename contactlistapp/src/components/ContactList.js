@@ -11,6 +11,7 @@ const ContactList = (props) => {
             <ContactCard contact={contact} clickHandler={(id) => props.getContactId(id)} key={contact.id}></ContactCard>
         );
     });
+
     return (
         <div className="ui celled list">
                 <h2>Contact List </h2>
@@ -30,11 +31,12 @@ const ContactList = (props) => {
                 </thead>
                 <tbody>
                    
-                    {renderContactList}
+                    {renderContactList.length > 0 ? renderContactList: <tr><td>No contacts available</td></tr>}
                 </tbody>
                 </table>       
         </div>
     );
 }
+
 
 export default ContactList;

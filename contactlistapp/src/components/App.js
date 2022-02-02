@@ -26,6 +26,7 @@ function App() {
   // ];
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState("");
   //const LOCAL_STORAGE_KEY = "contacts";
 
   const addContactHandler = async (contact) => {
@@ -65,7 +66,16 @@ function App() {
 
   };
   const searchHandler = async (searchTerm) => {
-    console.log("Search handler > ", searchTerm);
+    //console.log("Search handler > ", searchTerm);
+    setSearchTerm(searchTerm);
+    if(searchTerm !== ""){
+      const newContactList = contacts.filter((contact) => {
+        return Object.values(contact).join(" ").toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(newContactList);
+    }else{
+      setSearchResults(contacts);
+    }
   }
   const removeContactHandler = async (id) => {
     await api.delete(`/contacts/${id}`);
@@ -74,6 +84,7 @@ function App() {
       return contact.id !== id; 
     })
     setContacts(newContactList);
+    setSearchResults(contacts);
   }
 
   const NoMatch = () => {
@@ -95,17 +106,17 @@ function App() {
 
   }, []);
 
-  useEffect(() => {
-    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  // }, [contacts]);
 
   return (
     <div className="ui container">
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler} term={searchTerm} searchKeyword={ searchHandler } />} />
-          <Route path="/add" element={<AddContact addContactHandler={addContactHandler}/>} />
+          <Route path="/" element={<ContactList contacts={searchTerm.length < 1 ? contacts: searchResults} getContactId={removeContactHandler} term={searchTerm} searchKeyword={ searchHandler } />} />
+          <Route path="/add" element={<AddContact addContactHandler={addContactHandler} />} />
           <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler}/>} />
           <Route path="/contact/:id" element={<ContactDetail />} />
           <Route path="*" element={<NoMatch />} />
